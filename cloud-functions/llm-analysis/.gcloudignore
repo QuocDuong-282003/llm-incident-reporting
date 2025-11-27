@@ -1,0 +1,10 @@
+# Ignore TypeScript files
+*.ts
+tsconfig.json
+
+# Ignore node_modules (will be installed by GCP)
+node_modules/
+
+# Ignore other files
+*.log
+.DS_Store

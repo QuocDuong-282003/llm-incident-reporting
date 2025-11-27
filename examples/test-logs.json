@@ -1,0 +1,55 @@
+[
+  {
+    "service_name": "auth-service",
+    "severity": "error",
+    "log_message": "Failed to authenticate user: Invalid token provided",
+    "metadata": {
+      "user_id": "12345",
+      "ip_address": "192.168.1.1",
+      "endpoint": "/api/login"
+    }
+  },
+  {
+    "service_name": "database-service",
+    "severity": "critical",
+    "log_message": "Database connection timeout after 30 seconds. Retrying connection...",
+    "metadata": {
+      "db_host": "db.example.com",
+      "db_port": 5432,
+      "retry_count": 3,
+      "error_code": "ETIMEDOUT"
+    }
+  },
+  {
+    "service_name": "api-gateway",
+    "severity": "warning",
+    "log_message": "Request processing time exceeded 5 seconds threshold",
+    "metadata": {
+      "endpoint": "/api/users",
+      "method": "GET",
+      "response_time_ms": 5234,
+      "status_code": 200
+    }
+  },
+  {
+    "service_name": "compute-service",
+    "severity": "error",
+    "log_message": "Out of memory: Cannot allocate additional heap space. Current usage: 8192MB / 8192MB",
+    "metadata": {
+      "memory_usage_mb": 8192,
+      "max_memory_mb": 8192,
+      "heap_used_mb": 7500
+    }
+  },
+  {
+    "service_name": "payment-service",
+    "severity": "error",
+    "log_message": "Payment processing failed: Insufficient funds",
+    "metadata": {
+      "transaction_id": "txn_123456",
+      "amount": 100.00,
+      "currency": "USD"
+    }
+  }
+]
+

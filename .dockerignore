@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.env
+*.log
+.DS_Store
+cloud-functions
+scripts
+README.md
+DEPLOYMENT.md
+QUICKSTART.md
+
