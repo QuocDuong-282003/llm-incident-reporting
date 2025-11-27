@@ -1,6 +1,6 @@
 # PowerShell script để test API đơn giản
 
-Write-Host "🧪 Testing Log Ingestion API..." -ForegroundColor Green
+Write-Host "Testing Log Ingestion API..." -ForegroundColor Green
 Write-Host ""
 
 $apiUrl = "http://localhost:3001"
@@ -19,10 +19,10 @@ $body1 = @{
 
 try {
     $response1 = Invoke-RestMethod -Uri "$apiUrl/log/ingest" -Method Post -Body $body1 -ContentType "application/json"
-    Write-Host "✅ Success!" -ForegroundColor Green
+    Write-Host "Success!" -ForegroundColor Green
     $response1 | ConvertTo-Json
 } catch {
-    Write-Host "❌ Error: $_" -ForegroundColor Red
+    Write-Host "Error: $_" -ForegroundColor Red
 }
 Write-Host ""
 
@@ -40,10 +40,10 @@ $body2 = @{
 
 try {
     $response2 = Invoke-RestMethod -Uri "$apiUrl/log/ingest" -Method Post -Body $body2 -ContentType "application/json"
-    Write-Host "✅ Success!" -ForegroundColor Green
+    Write-Host "Success!" -ForegroundColor Green
     $response2 | ConvertTo-Json
 } catch {
-    Write-Host "❌ Error: $_" -ForegroundColor Red
+    Write-Host "Error: $_" -ForegroundColor Red
 }
 Write-Host ""
 
@@ -61,12 +61,12 @@ $body3 = @{
 
 try {
     $response3 = Invoke-RestMethod -Uri "$apiUrl/log/ingest" -Method Post -Body $body3 -ContentType "application/json"
-    Write-Host "✅ Success!" -ForegroundColor Green
+    Write-Host "Success!" -ForegroundColor Green
     $response3 | ConvertTo-Json
 } catch {
-    Write-Host "❌ Error: $_" -ForegroundColor Red
+    Write-Host "Error: $_" -ForegroundColor Red
 }
 
 Write-Host ""
-Write-Host "✅ Testing completed!" -ForegroundColor Green
+Write-Host "Testing completed!" -ForegroundColor Green
 

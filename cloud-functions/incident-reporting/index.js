@@ -17,7 +17,7 @@ const sheetRange = process.env.GOOGLE_SHEETS_RANGE || 'Incident Report!A1';
  */
 exports.incidentReporting = functions.http('incidentReporting', async (req, res) => {
     try {
-        console.log('📊 Generating incident report...');
+        console.log('Generating incident report...');
 
         // Query BigQuery for latest incidents (last hour)
         const query = `
@@ -80,7 +80,7 @@ exports.incidentReporting = functions.http('incidentReporting', async (req, res)
             },
         });
 
-        console.log(`✅ Written ${rows.length} incidents to Google Sheets`);
+        console.log(`Written ${rows.length} incidents to Google Sheets`);
 
         return res.status(200).json({
             success: true,
@@ -89,7 +89,7 @@ exports.incidentReporting = functions.http('incidentReporting', async (req, res)
             sheetId: sheetId,
         });
     } catch (error) {
-        console.error('❌ Error generating report:', error);
+        console.error('Error generating report:', error);
         return res.status(500).json({
             error: 'Failed to generate incident report',
             details: error.message,

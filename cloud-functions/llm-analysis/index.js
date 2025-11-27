@@ -151,7 +151,7 @@ exports.llmAnalysis = functions.cloudEvent('llmAnalysis', async (cloudEvent) => 
     
     if (!datasetExists) {
       await bigquery.createDataset(datasetId);
-      console.log(`✅ Created dataset: ${datasetId}`);
+      console.log(`Created dataset: ${datasetId}`);
     }
 
     const table = dataset.table(tableId);
@@ -169,14 +169,14 @@ exports.llmAnalysis = functions.cloudEvent('llmAnalysis', async (cloudEvent) => 
       ];
       
       await table.create({ schema });
-      console.log(`✅ Created table: ${tableId}`);
+      console.log(`Created table: ${tableId}`);
     }
 
     // Insert into BigQuery
     await table.insert([incidentAnalysis]);
-    console.log(`✅ Stored analysis in BigQuery: ${analysis.type}`);
+    console.log(`Stored analysis in BigQuery: ${analysis.type}`);
   } catch (error) {
-    console.error('❌ Error analyzing log:', error);
+    console.error('Error analyzing log:', error);
     throw error;
   }
 });

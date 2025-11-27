@@ -56,9 +56,9 @@ exports.logProcessing = functions.cloudEvent('logProcessing', async (cloudEvent)
       json: cleanLog,
     });
 
-    console.log(`✅ Normalized and published to ${cleanLogsTopicName}: ${messageId}`);
+    console.log(`Normalized and published to ${cleanLogsTopicName}: ${messageId}`);
   } catch (error) {
-    console.error('❌ Error processing log:', error);
+    console.error('Error processing log:', error);
     throw error;
   }
 });

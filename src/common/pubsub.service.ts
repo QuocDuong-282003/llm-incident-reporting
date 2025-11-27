@@ -32,10 +32,10 @@ export class PubSubService implements OnModuleInit {
         this.rawLogsTopic = this.pubsub.topic(this.rawLogsTopicName);
       }
       
-      console.log(`✅ Pub/Sub topic ready: ${this.rawLogsTopicName}`);
+      console.log(`Pub/Sub topic ready: ${this.rawLogsTopicName}`);
     } catch (error: any) {
-      console.warn('⚠️  Pub/Sub not available (running in local mode):', error.message);
-      console.log('📝 Logs will be printed to console instead');
+      console.warn('Pub/Sub not available (running in local mode):', error.message);
+      console.log('Logs will be printed to console instead');
       // Don't throw - allow local testing without GCP
     }
   }
@@ -44,19 +44,19 @@ export class PubSubService implements OnModuleInit {
     try {
       if (!this.rawLogsTopic) {
         // Local mode - just log to console
-        console.log('📤 [LOCAL MODE] Log received:', JSON.stringify(logData, null, 2));
+        console.log('[LOCAL MODE] Log received:', JSON.stringify(logData, null, 2));
         return 'local-message-id-' + Date.now();
       }
       
       const messageId = await this.rawLogsTopic.publishMessage({
         json: logData,
       });
-      console.log(`📤 Published log to ${this.rawLogsTopicName}: ${messageId}`);
+      console.log(`Published log to ${this.rawLogsTopicName}: ${messageId}`);
       return messageId;
     } catch (error: any) {
       // Fallback to local mode
       console.log('📤 [LOCAL MODE] Log received:', JSON.stringify(logData, null, 2));
-      console.warn('⚠️  Pub/Sub error (using local mode):', error.message);
+      console.warn('Pub/Sub error (using local mode):', error.message);
       return 'local-message-id-' + Date.now();
     }
   }

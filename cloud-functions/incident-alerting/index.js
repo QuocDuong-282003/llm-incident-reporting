@@ -19,7 +19,7 @@ const alertTimeWindow = parseInt(process.env.ALERT_TIME_WINDOW_MINUTES || '15', 
  */
 async function sendTelegramAlert(message) {
   if (!telegramBotToken || !telegramChatId) {
-    console.warn('⚠️ Telegram credentials not configured, skipping alert');
+    console.warn('Telegram credentials not configured, skipping alert');
     return;
   }
 
@@ -27,12 +27,12 @@ async function sendTelegramAlert(message) {
     const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
     await axios.post(url, {
       chat_id: telegramChatId,
-      text: `🚨 *INCIDENT ALERT*\n\n${message}`,
+      text: `*INCIDENT ALERT*\n\n${message}`,
       parse_mode: 'Markdown',
     });
-    console.log('✅ Telegram alert sent successfully');
+    console.log('Telegram alert sent successfully');
   } catch (error) {
-    console.error('❌ Error sending Telegram alert:', error.message);
+    console.error('Error sending Telegram alert:', error.message);
     throw error;
   }
 }
@@ -62,13 +62,13 @@ exports.incidentAlerting = functions.http('incidentAlerting', async (req, res) =
     const result = rows[0];
     const incidentCount = parseInt(result.incident_count, 10);
 
-    console.log(`📊 Found ${incidentCount} Database Connectivity Issues in the last ${alertTimeWindow} minutes`);
+    console.log(`Found ${incidentCount} Database Connectivity Issues in the last ${alertTimeWindow} minutes`);
 
     if (incidentCount >= alertThreshold) {
       const alertMessage = `
 *CRITICAL ALERT: Database Connectivity Issues Detected*
 
-⚠️ *Count:* ${incidentCount} incidents
+*Count:* ${incidentCount} incidents
 ⏰ *Time Window:* Last ${alertTimeWindow} minutes
 🔴 *Threshold:* ${alertThreshold} incidents
 📦 *Affected Services:* ${result.affected_services || 'Unknown'}
@@ -96,7 +96,7 @@ exports.incidentAlerting = functions.http('incidentAlerting', async (req, res) =
       message: 'No critical incidents detected',
     });
   } catch (error) {
-    console.error('❌ Error checking alerts:', error);
+    console.error('Error checking alerts:', error);
     return res.status(500).json({
       error: 'Failed to check incidents',
       details: error.message,
