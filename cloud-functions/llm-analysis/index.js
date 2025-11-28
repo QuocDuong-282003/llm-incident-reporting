@@ -129,7 +129,7 @@ exports.llmAnalysis = functions.cloudEvent('llmAnalysis', async (cloudEvent) => 
     
     const cleanLog = JSON.parse(cleanLogData);
 
-    console.log('🔍 Analyzing log:', cleanLog);
+    console.log('Analyzing log:', cleanLog);
 
     // Analyze with LLM
     const analysis = await analyzeLogWithLLM(cleanLog);

@@ -44,7 +44,7 @@ async function sendTelegramAlert(message) {
  */
 exports.incidentAlerting = functions.http('incidentAlerting', async (req, res) => {
   try {
-    console.log('🔔 Checking for critical incidents...');
+    console.log('Checking for critical incidents...');
 
     // Query BigQuery for Database Connectivity Issues in the last time window
     const query = `
@@ -69,10 +69,10 @@ exports.incidentAlerting = functions.http('incidentAlerting', async (req, res) =
 *CRITICAL ALERT: Database Connectivity Issues Detected*
 
 *Count:* ${incidentCount} incidents
-⏰ *Time Window:* Last ${alertTimeWindow} minutes
-🔴 *Threshold:* ${alertThreshold} incidents
-📦 *Affected Services:* ${result.affected_services || 'Unknown'}
-🕐 *Latest Incident:* ${result.latest_incident?.value || result.latest_incident || 'Unknown'}
+*Time Window:* Last ${alertTimeWindow} minutes
+*Threshold:* ${alertThreshold} incidents
+*Affected Services:* ${result.affected_services || 'Unknown'}
+*Latest Incident:* ${result.latest_incident?.value || result.latest_incident || 'Unknown'}
 
 *Action Required:* Immediate investigation needed!
       `.trim();

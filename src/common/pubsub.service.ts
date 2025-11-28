@@ -55,7 +55,7 @@ export class PubSubService implements OnModuleInit {
       return messageId;
     } catch (error: any) {
       // Fallback to local mode
-      console.log('📤 [LOCAL MODE] Log received:', JSON.stringify(logData, null, 2));
+      console.log('[LOCAL MODE] Log received:', JSON.stringify(logData, null, 2));
       console.warn('Pub/Sub error (using local mode):', error.message);
       return 'local-message-id-' + Date.now();
     }

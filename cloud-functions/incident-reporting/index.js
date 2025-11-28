@@ -35,7 +35,7 @@ exports.incidentReporting = functions.http('incidentReporting', async (req, res)
     `;
 
         const [rows] = await bigquery.query({ query });
-        console.log(`📈 Found ${rows.length} incidents in the last hour`);
+        console.log(`Found ${rows.length} incidents in the last hour`);
 
         if (rows.length === 0) {
             return res.status(200).json({

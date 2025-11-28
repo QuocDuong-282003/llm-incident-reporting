@@ -30,7 +30,7 @@ exports.logProcessing = functions.cloudEvent('logProcessing', async (cloudEvent)
     
     const rawLog = JSON.parse(rawLogData);
 
-    console.log('📥 Received raw log:', rawLog);
+    console.log('Received raw log:', rawLog);
 
     // Normalize log to fixed fields
     const cleanLog = {

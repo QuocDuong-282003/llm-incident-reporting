@@ -1,12 +1,58 @@
+# Dependencies
 node_modules/
 dist/
-.env
 *.log
-.DS_Store
-*.swp
-*.swo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+gcp-key.json
+*.pem
+*.key
+
+# IDE
 .vscode/
 .idea/
-*.pem
-gcp-key.json
+*.swp
+*.swo
+.DS_Store
 
+# OS
+Thumbs.db
+
+# Documentation and scripts (exclude from git)
+HUONG_DAN*.md
+HUONG_DAN*.txt
+BAT_DAU*.md
+DEMO_*.md
+DEMO_*.ps1
+DEMO_*.js
+DEPLOY*.ps1
+DEPLOY*.sh
+DEPLOY*.md
+SETUP_*.ps1
+SETUP_*.bat
+TEST_*.ps1
+TEST_*.bat
+TEST_*.sh
+CHAY_*.bat
+CHAY_*.sh
+CHUAN_BI*.ps1
+CHECKLIST*.md
+KIEM_TRA*.md
+KIEM_TRA*.bat
+TAO_*.ps1
+create-*.ps1
+check-*.ps1
+UPDATE_*.ps1
+QUICKSTART.md
+PROJECT_SUMMARY.md
+README.md
+
+# Keep only essential files
+!README.md
+
+# Examples and scripts
+examples/
+scripts/
